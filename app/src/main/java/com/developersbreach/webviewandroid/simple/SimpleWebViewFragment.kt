@@ -8,9 +8,6 @@ import android.view.ViewGroup
 import com.developersbreach.webviewandroid.R
 
 
-/**
- * A simple [Fragment] subclass.
- */
 class SimpleWebViewFragment : Fragment() {
 
     companion object {
