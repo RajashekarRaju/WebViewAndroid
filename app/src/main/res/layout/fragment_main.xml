@@ -1,14 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment">
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:id="@+id/main_fragment_container"
+    tools:context=".MainFragment">
 
-    <TextView
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/simple_fragment_card_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="160dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        android:layout_marginBottom="16dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toTopOf="@id/hor_guide">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/simple_web_view_text"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            android:textColor="?attr/colorOnSurface" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <View
+        android:id="@+id/hor_guide"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/interactive_fragment_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        android:layout_marginTop="16dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintTop_toBottomOf="@id/hor_guide">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/interactive_web_view_text"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            android:textColor="?attr/colorOnSurface" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
