@@ -1,10 +1,14 @@
 package com.developersbreach.webviewandroid.simple
 
+import android.graphics.Bitmap
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
+import android.webkit.WebViewClient
+import android.widget.ProgressBar
 import androidx.appcompat.widget.Toolbar
 import com.developersbreach.webviewandroid.R
 
@@ -13,6 +17,7 @@ class SimpleWebViewFragment : Fragment() {
 
     companion object {
         fun newInstance() = SimpleWebViewFragment()
+        const val WEB_VIEW_URL: String = "https://github.com/RajashekarRaju"
     }
 
     override fun onCreateView(
@@ -28,6 +33,23 @@ class SimpleWebViewFragment : Fragment() {
 
         view.findViewById<Toolbar>(R.id.toolbar_simple_fragment).setNavigationOnClickListener {
             requireActivity().onBackPressed()
+        }
+
+        val webView: WebView = view.findViewById(R.id.simple_web_view)
+        val progressBar: ProgressBar = view.findViewById(R.id.progress_bar_simple_web_view)
+
+        webView.loadUrl(WEB_VIEW_URL)
+
+        webView.webViewClient = object : WebViewClient() {
+            override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
+                super.onPageStarted(view, url, favicon)
+                progressBar.visibility = View.VISIBLE
+            }
+
+            override fun onPageFinished(view: WebView?, url: String?) {
+                super.onPageFinished(view, url)
+                progressBar.visibility = View.GONE
+            }
         }
     }
 }
