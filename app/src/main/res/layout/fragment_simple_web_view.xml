@@ -25,13 +25,19 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <TextView
+        <ProgressBar
+            android:id="@+id/progress_bar_simple_web_view"
+            style="@android:style/Widget.Material.Light.ProgressBar.Horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@string/simple_web_view_text"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
-            android:textColor="?attr/colorOnPrimary" />
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:visibility="invisible"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <WebView
+            android:id="@+id/simple_web_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
