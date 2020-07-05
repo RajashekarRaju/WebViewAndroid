@@ -1,15 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".simple.SimpleWebViewFragment">
 
-    <TextView
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_simple_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:title="Simple WebView" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textColor="#000000"
-        android:text="hello_blank_fragment" />
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/simple_web_view_text"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+            android:textColor="?attr/colorOnPrimary" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
