@@ -36,7 +36,7 @@ class SimpleWebViewFragment : Fragment() {
         }
 
         val webView: WebView = view.findViewById(R.id.simple_web_view)
-        val progressBar: ProgressBar = view.findViewById(R.id.progress_bar_simple_web_view)
+        val progressBar: ProgressBar = view.findViewById(R.id.progress_bar_simple_view)
 
         webView.loadUrl(WEB_VIEW_URL)
 

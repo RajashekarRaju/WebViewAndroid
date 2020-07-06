@@ -26,13 +26,10 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <ProgressBar
-            android:id="@+id/progress_bar_simple_web_view"
-            style="@android:style/Widget.Material.Light.ProgressBar.Horizontal"
+            android:id="@+id/progress_bar_simple_view"
+            app:layout_constraintTop_toTopOf="parent"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:indeterminate="true"
-            android:visibility="invisible"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="5dp"/>
 
         <WebView
             android:id="@+id/simple_web_view"
