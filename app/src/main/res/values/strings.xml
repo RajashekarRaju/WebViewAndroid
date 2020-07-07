@@ -1,5 +1,15 @@
 <resources>
     <string name="app_name">WebViewAndroid</string>
+
+    <!--  Fragment names  -->
     <string name="simple_web_view_text">Simple WebView</string>
     <string name="interactive_web_view_text">Interactive WebView</string>
+
+    <!--  DetailFragment Appbar Menu Items  -->
+    <string name="bottom_appbar_menu_title_search">Search</string>
+    <string name="bottom_appbar_menu_title_close">Close</string>
+    <string name="bottom_appbar_menu_title_theme">Theme</string>
+    <string name="bottom_appbar_menu_title_refresh">Refresh</string>
+    <string name="bottom_appbar_menu_title_find_top">Top</string>
+    <string name="bottom_appbar_menu_title_find_bottom">Bottom</string>
 </resources>
