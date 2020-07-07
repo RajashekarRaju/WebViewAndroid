@@ -2,9 +2,11 @@ package com.developersbreach.webviewandroid.interactive
 
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebSettings
@@ -44,6 +46,13 @@ class InteractiveWebViewFragment : Fragment() {
 
         webSettings = webView.settings
         webSettings.javaScriptEnabled = true
+        setWebViewMenu(bottomAppBar)
+    }
+
+    private fun setWebViewMenu(bottomAppBar: BottomAppBar) {
+        bottomAppBar.replaceMenu(R.menu.bottom_app_bar_menu)
+        bottomAppBar.hideOnScroll = true
+        invalidateMenuOptions()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -65,4 +74,8 @@ class InteractiveWebViewFragment : Fragment() {
         }
     }
 
+    private fun invalidateMenuOptions() {
+        val item: MenuItem = bottomAppBar.menu.getItem(3)
+        item.isVisible = Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
+    }
 }
