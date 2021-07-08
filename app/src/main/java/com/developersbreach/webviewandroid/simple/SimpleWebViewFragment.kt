@@ -10,15 +10,11 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ProgressBar
 import androidx.appcompat.widget.Toolbar
+import com.developersbreach.webviewandroid.MainActivity.Companion.WEB_URL_LINK
 import com.developersbreach.webviewandroid.R
 
 
 class SimpleWebViewFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = SimpleWebViewFragment()
-        const val WEB_VIEW_URL: String = "https://github.com/RajashekarRaju"
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,7 +34,7 @@ class SimpleWebViewFragment : Fragment() {
         val webView: WebView = view.findViewById(R.id.simple_web_view)
         val progressBar: ProgressBar = view.findViewById(R.id.progress_bar_simple_view)
 
-        webView.loadUrl(WEB_VIEW_URL)
+        webView.loadUrl(WEB_URL_LINK)
 
         webView.webViewClient = object : WebViewClient() {
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
