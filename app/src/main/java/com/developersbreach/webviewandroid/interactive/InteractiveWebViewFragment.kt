@@ -14,7 +14,7 @@ import android.widget.ProgressBar
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
-import androidx.lifecycle.ViewModelProvider
+import com.developersbreach.webviewandroid.MainActivity.Companion.WEB_URL_LINK
 import com.developersbreach.webviewandroid.R
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -26,11 +26,6 @@ class InteractiveWebViewFragment : Fragment() {
     private lateinit var webView: WebView
     private lateinit var progressBar: ProgressBar
     private lateinit var webSettings: WebSettings
-    private lateinit var viewModel: InteractiveWebViewViewModel
-
-    companion object {
-        fun newInstance() = InteractiveWebViewFragment()
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,12 +45,7 @@ class InteractiveWebViewFragment : Fragment() {
         webSettings = webView.settings
         webSettings.javaScriptEnabled = true
         setWebViewMenu(bottomAppBar)
-    }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-        viewModel = ViewModelProvider(this).get(InteractiveWebViewViewModel::class.java)
         loadWebView()
 
         webView.webViewClient = object : WebViewClient() {
@@ -102,12 +92,12 @@ class InteractiveWebViewFragment : Fragment() {
     }
 
     private fun loadWebView() {
-        webView.loadUrl(viewModel.urlLink)
+        webView.loadUrl(WEB_URL_LINK)
     }
 
     private fun searchWebView() {
         val dialog: AlertDialog =
-            MaterialAlertDialogBuilder(context, R.style.MaterialDialog)
+            MaterialAlertDialogBuilder(requireContext(), R.style.MaterialDialog)
                 .setTitle(R.string.search_query_dialog_title)
                 .setView(R.layout.search_edit_text)
                 .setPositiveButton(R.string.search_query_dialog_positive_button, null)

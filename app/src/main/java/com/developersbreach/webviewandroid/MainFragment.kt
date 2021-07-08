@@ -5,10 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
-import com.developersbreach.webviewandroid.interactive.InteractiveWebViewFragment
-import com.developersbreach.webviewandroid.simple.SimpleWebViewFragment
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.card.MaterialCardView
 
 
@@ -25,22 +22,19 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<MaterialCardView>(R.id.simple_fragment_card_view).setOnClickListener {
-            val fragment = SimpleWebViewFragment.newInstance()
-            showSelectedFragment(fragment)
+        val simple = view.findViewById<MaterialCardView>(R.id.simple_fragment_card_view)
+        val interactive = view.findViewById<MaterialCardView>(R.id.interactive_fragment_card_view)
+
+        simple.setOnClickListener {
+            findNavController().navigate(
+                MainFragmentDirections.mainToSimpleWebView()
+            )
         }
 
-        view.findViewById<MaterialCardView>(R.id.interactive_fragment_card_view).setOnClickListener {
-            val fragment = InteractiveWebViewFragment.newInstance()
-            showSelectedFragment(fragment)
+        interactive.setOnClickListener {
+            findNavController().navigate(
+                MainFragmentDirections.mainToInteractiveWebView()
+            )
         }
-    }
-
-    private fun showSelectedFragment(fragment: Fragment) {
-        val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
-        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragment_container, fragment)
-        fragmentTransaction.addToBackStack(null)
-        fragmentTransaction.commit()
     }
 }
