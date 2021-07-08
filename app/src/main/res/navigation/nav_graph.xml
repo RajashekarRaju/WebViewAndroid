@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.developersbreach.webviewandroid.MainFragment"
+        android:label="Main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/mainToInteractiveWebView"
+            app:destination="@id/interactiveWebViewFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/mainToSimpleWebView"
+            app:destination="@id/simpleWebViewFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/interactiveWebViewFragment"
+        android:name="com.developersbreach.webviewandroid.interactive.InteractiveWebViewFragment"
+        android:label="InteractiveWebView"
+        tools:layout="@layout/fragment_interactive_web_view" />
+
+    <fragment
+        android:id="@+id/simpleWebViewFragment"
+        android:name="com.developersbreach.webviewandroid.simple.SimpleWebViewFragment"
+        android:label="SimpleWebView"
+        tools:layout="@layout/fragment_simple_web_view" />
+
+</navigation>
